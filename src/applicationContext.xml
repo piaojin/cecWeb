@@ -77,6 +77,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean class="com.piaojin.action.EmployAction" id="employAction"
 		scope="prototype" parent="baseAction">
 	</bean>
+	<bean class="com.piaojin.action.DownAction" id="downAction"
+		scope="prototype" parent="baseAction">
+	</bean>
 	<bean class="com.piaojin.action.FileAction" id="fileAction"
 		scope="prototype" parent="baseAction">
 	</bean>

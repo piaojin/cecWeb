@@ -7,6 +7,8 @@
 
 		<action name="employ*" class="employAction" method="{1}">
 		</action>
+		<action name="down*" class="downAction" method="{1}">
+		</action>
 		<action name="file*" class="fileAction" method="{1}">
 		</action>
 		<action name="message*" class="messageAction" method="{1}">
