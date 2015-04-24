@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.5-bin.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/ckeditor-java-core-3.5.3.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/CKFinder-2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/CKFinderPlugin-FileEditor-2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/CKFinderPlugin-ImageResize-2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/mail-1.4.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/fck/Thumbnailator-0.3.10.jar"/>
+	<classpathentry kind="lib" path="E:/android OA/gson-2.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

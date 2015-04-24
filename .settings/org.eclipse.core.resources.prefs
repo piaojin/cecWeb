@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/com/piaojin/action/EmployAction.java=UTF-8
+encoding//src/com/piaojin/action/FileAction.java=UTF-8
+encoding//src/com/piaojin/action/MessageAction.java=UTF-8
+encoding//src/com/piaojin/action/ScheduleAction.java=UTF-8
+encoding//src/com/piaojin/action/TaskAction.java=UTF-8
+encoding//src/com/piaojin/common/Page.java=UTF-8
+encoding//src/com/piaojin/common/makeCertPic.java=UTF-8
+encoding//src/com/piaojin/dao/BaseDAO.java=UTF-8
+encoding//src/com/piaojin/dao/impl/BaseDAOImpl.java=UTF-8
+encoding/<project>=UTF-8

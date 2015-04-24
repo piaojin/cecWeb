@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	<!-- 事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<aop:config>
+		<aop:pointcut id="productServiceMethods"
+			expression="execution(* com.piaojin.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="BaseDAO" class="com.piaojin.dao.impl.BaseDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<!-- DAO配置 -->
+	<bean id="EmployDAO" class="com.piaojin.dao.impl.EmployDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="MyFileDAO" class="com.piaojin.dao.impl.MyFileDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="MessageDAO" class="com.piaojin.dao.impl.MessageDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="ScheduleDAO" class="com.piaojin.dao.impl.ScheduleDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="TaskDAO" class="com.piaojin.dao.impl.TaskDAOImpl"
+		parent="BaseDAO">
+	</bean>
+
+	<!-- Service配置 -->
+	<bean class="com.piaojin.service.impl.EmployServiceImpl" id="EmployService">
+		<property name="employDAO" ref="EmployDAO"></property>
+	</bean>
+	<bean class="com.piaojin.service.impl.MyFileServiceImpl" id="MyFileService">
+		<property name="myfileDAO" ref="MyFileDAO"></property>
+	</bean>
+	<bean class="com.piaojin.service.impl.MessageServiceImpl" id="MessageService">
+		<property name="messageDAO" ref="MessageDAO"></property>
+	</bean>
+	<bean class="com.piaojin.service.impl.ScheduleServiceImpl" id="ScheduleService">
+		<property name="scheduleDAO" ref="ScheduleDAO"></property>
+	</bean>
+	<bean class="com.piaojin.service.impl.TaskServiceImpl" id="TaskService">
+		<property name="taskDAO" ref="TaskDAO"></property>
+	</bean>
+
+    <!-- Action配置  -->
+	<bean class="com.piaojin.action.EmployAction" id="employAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+	<bean class="com.piaojin.action.FileAction" id="fileAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+	<bean class="com.piaojin.action.MessageAction" id="messageAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+	<bean class="com.piaojin.action.ScheduleAction" id="scheduleAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+	<bean class="com.piaojin.action.TaskAction" id="taskAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+
+	<bean class="com.piaojin.action.BaseAction" id="baseAction"
+		scope="prototype">
+		<property name="employService" ref="EmployService"></property>
+		<property name="myFileService" ref="MyFileService"></property>
+		<property name="messageService" ref="MessageService"></property>
+		<property name="scheduleService" ref="ScheduleService"></property>
+		<property name="taskService" ref="TaskService"></property>
+	</bean>
+</beans>
