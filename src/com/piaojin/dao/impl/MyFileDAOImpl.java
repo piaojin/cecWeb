@@ -39,14 +39,16 @@ public void deleteMyFile(MyFile MyFile) {
 
 	public List<MyFile> getAllSharedFile() {
 		// TODO Auto-generated method stub
-		String hql="from MyFile where status = 0";
+		String hql="from MyFile";
 		List<Object> objlist=null;
 		List<MyFile> list=null;
 		objlist=super.find(hql,null);
 		if(objlist!=null){
 			list=new ArrayList<MyFile>();
 			for(Object o:objlist){
-				list.add((MyFile)o);
+				MyFile tempfile=(MyFile)o;
+				tempfile.setUname(tempfile.getEmploy().getName());
+				list.add(tempfile);
 			}
 		}
 		return list;

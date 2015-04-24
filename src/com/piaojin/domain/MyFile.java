@@ -10,6 +10,14 @@ public class MyFile implements java.io.Serializable {
 
 	// Fields
 
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
 	@Expose
 	private Integer fid;
 	@Expose
@@ -39,6 +47,8 @@ public class MyFile implements java.io.Serializable {
 	private String completedate;
 	@Expose
 	private String name;
+	@Expose
+	private String uname;
 	@Expose
 	private Double filesize;
 	@Expose
