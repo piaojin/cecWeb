@@ -2,16 +2,12 @@ package com.piaojin.action;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PushbackInputStream;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import org.apache.struts2.util.ServletContextAware;
-
-import com.piaojin.common.StreamTool;
 import com.piaojin.domain.Employ;
 import com.piaojin.domain.MyFile;
 
