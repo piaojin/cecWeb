@@ -16,6 +16,16 @@ public class Employ implements java.io.Serializable {
 	@Expose
 	private Integer uid;
 	@Expose
+	private Integer kid;
+	public Integer getKid() {
+		return kid;
+	}
+
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
+	@Expose
 	private String name;
 	@Expose
 	private Integer sex;

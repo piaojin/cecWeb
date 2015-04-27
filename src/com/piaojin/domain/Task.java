@@ -12,6 +12,16 @@ public class Task implements java.io.Serializable {
 
 	@Expose
 	private Integer tid;
+	@Expose
+	private Integer kid;
+	public Integer getKid() {
+		return kid;
+	}
+
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
 	private Employ employByUid;
 	private Employ employByEid;
 	@Expose

@@ -17,7 +17,9 @@ public void deleteMyFile(MyFile MyFile) {
 		String hql="from MyFile where name="+"'"+MyFileName+"'";
 		List list=super.find(hql, null);
 		if(list.size()==1){
-			return (MyFile)list.get(0);
+			MyFile myfile=(MyFile)list.get(0);
+			myfile.setKid(myfile.getFid());
+			return myfile;
 		}else{
 			return null;
 		}
@@ -25,7 +27,9 @@ public void deleteMyFile(MyFile MyFile) {
 
 	public MyFile getById(int fid) {
 		// TODO Auto-generated method stub
-		return super.findById(MyFile.class, fid);
+		MyFile myfile=super.findById(MyFile.class, fid);
+		myfile.setKid(myfile.getFid());
+		return myfile;
 	}
 	
 	public void save(MyFile MyFile){
@@ -48,6 +52,7 @@ public void deleteMyFile(MyFile MyFile) {
 			for(Object o:objlist){
 				MyFile tempfile=(MyFile)o;
 				tempfile.setUname(tempfile.getEmploy().getName());
+				tempfile.setKid(tempfile.getFid());
 				list.add(tempfile);
 			}
 		}

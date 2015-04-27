@@ -13,8 +13,9 @@ public void deleteMessage(Message message) {
 
 	public Message getById(int mid) {
 		// TODO Auto-generated method stub
-		Class<Message> message = null;
-		return super.findById(Message.class, mid);
+		Message message=super.findById(Message.class, mid);
+		message.setKid(message.getMid());
+		return message;
 	}
 	
 	public void save(Message message){

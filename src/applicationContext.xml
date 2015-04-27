@@ -43,6 +43,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean id="EmployDAO" class="com.piaojin.dao.impl.EmployDAOImpl"
 		parent="BaseDAO">
 	</bean>
+	<bean id="DepartmentDAO" class="com.piaojin.dao.impl.DepartmentDAOImpl"
+		parent="BaseDAO">
+	</bean>
 	<bean id="MyFileDAO" class="com.piaojin.dao.impl.MyFileDAOImpl"
 		parent="BaseDAO">
 	</bean>
@@ -60,6 +63,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean class="com.piaojin.service.impl.EmployServiceImpl" id="EmployService">
 		<property name="employDAO" ref="EmployDAO"></property>
 	</bean>
+	<bean class="com.piaojin.service.impl.DepartmentServiceImpl" id="DepartmentService">
+		<property name="departmentDAO" ref="DepartmentDAO"></property>
+	</bean>
 	<bean class="com.piaojin.service.impl.MyFileServiceImpl" id="MyFileService">
 		<property name="myfileDAO" ref="MyFileDAO"></property>
 	</bean>
@@ -75,6 +81,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <!-- Action配置  -->
 	<bean class="com.piaojin.action.EmployAction" id="employAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+	<bean class="com.piaojin.action.DepartmentAction" id="departmentAction"
 		scope="prototype" parent="baseAction">
 	</bean>
 	<bean class="com.piaojin.action.DownAction" id="downAction"
@@ -96,6 +105,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<bean class="com.piaojin.action.BaseAction" id="baseAction"
 		scope="prototype">
 		<property name="employService" ref="EmployService"></property>
+		<property name="departmentService" ref="DepartmentService"></property>
 		<property name="myFileService" ref="MyFileService"></property>
 		<property name="messageService" ref="MessageService"></property>
 		<property name="scheduleService" ref="ScheduleService"></property>

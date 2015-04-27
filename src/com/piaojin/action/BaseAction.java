@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.piaojin.common.Page;
 import com.piaojin.domain.Employ;
+import com.piaojin.service.DepartmentService;
 import com.piaojin.service.EmployService;
 import com.piaojin.service.MessageService;
 import com.piaojin.service.MyFileService;
@@ -54,6 +55,15 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	//====================Service实例的声� ===================
 	
 	public EmployService employService;
+	public DepartmentService departmentService;
+	public DepartmentService getDepartmentService() {
+		return departmentService;
+	}
+
+	public void setDepartmentService(DepartmentService departmentService) {
+		this.departmentService = departmentService;
+	}
+
 	public MessageService messageService;
     public MyFileService fileService;
     public ScheduleService scheduleService;

@@ -1,5 +1,7 @@
 package com.piaojin.domain;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Message entity. @author MyEclipse Persistence Tools
  */
@@ -8,15 +10,33 @@ public class Message implements java.io.Serializable {
 
 	// Fields
 
+	@Expose
 	private Integer mid;
+	@Expose
+	private Integer kid;
+	public Integer getKid() {
+		return kid;
+	}
+
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
 	private Employ employByReceiverid;
 	private Employ employBySenderid;
+	@Expose
 	private String sendtime;
+	@Expose
 	private String receivetime;
+	@Expose
 	private Integer type;
+	@Expose
 	private String msg;
+	@Expose
 	private String photourl;
+	@Expose
 	private String videourl;
+	@Expose
 	private Integer status;
 
 	// Constructors

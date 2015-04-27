@@ -16,7 +16,9 @@ public void deleteTask(Task task) {
 		String hql="from Users where title='"+title;
 		List list=super.find(hql, null);
 		if(list.size()==1){
-			return (Task)list.get(0);
+			Task task=(Task)list.get(0);
+			task.setKid(task.getTid());
+			return task;
 		}else{
 			return null;
 		}
@@ -24,8 +26,9 @@ public void deleteTask(Task task) {
 
 	public Task getById(int tid) {
 		// TODO Auto-generated method stub
-		Class<Task> task = null;
-		return super.findById(Task.class, tid);
+		Task task=super.findById(Task.class, tid);
+		task.setKid(task.getTid());
+		return task;
 	}
 	
 	public void save(Task task){

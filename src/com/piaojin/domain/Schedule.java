@@ -13,6 +13,16 @@ public class Schedule implements java.io.Serializable {
 	@Expose
 	private Integer sid;
 	@Expose
+	private Integer kid;
+	public Integer getKid() {
+		return kid;
+	}
+
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
+	@Expose
 	private Employ employ;
 	@Expose
 	private String title;

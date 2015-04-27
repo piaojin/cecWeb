@@ -30,21 +30,7 @@ public class EmployAction extends BaseAction<Employ> implements
 	}
 
 	public String save() {
-		System.out.println("123");
-		employ = new Employ();
-		employ.setName("飘金");
-		employ.setSex(0);
-		employ.setTel("13666902838");
-		employ.setEmail("804488815@qq.com");
-		employ.setAddress("福建省莆田市荔城区北高镇北高村坑东30号");
-		employ.setEmployeeid(6);
-		employ.setPwd("804488815");
-		employ.setDepartment("飘金操作系统研发部门");
-		employ.setHead("www.piaojin.com");
-		employ.setLevel(6);
-		// super.employService.save(employ);
-		String json = new Gson().toJson(employ);
-		System.out.println(json);
+		System.out.println("save");
 		return SUC;
 	}
 
@@ -82,27 +68,6 @@ public class EmployAction extends BaseAction<Employ> implements
 		super.response.setCharacterEncoding("UTF-8");
 		super.response.setContentType("text/html;charset=UTF-8");
 		List<Employ> list = employService.getAllEmploy();
-		/*File dir=new File(CommonResource.TEMPPATH);
-	    if(dir.exists()){
-	    	dir.mkdirs();
-	    }
-	    File file=new File(dir,CommonResource.ALLEMPLOY);
-	    if(file.exists()){
-	    	file.createNewFile();
-	    }
-	    FileWriter fw=new FileWriter(file);
-	    BufferedWriter bw=new BufferedWriter(fw);
-		if(list!=null&&list.size()>0){
-			gson=new Gson();
-			for(Employ employ:list){
-				String employjson=gson.toJson(employ);
-				bw.write(employjson);
-				bw.newLine();
-			}
-		}
-		bw.flush();
-		bw.close();
-		fw.close();*/
 		super.response.getOutputStream().write(CommonResource.gson.toJson(list).getBytes("UTF-8"));
 	}
 	

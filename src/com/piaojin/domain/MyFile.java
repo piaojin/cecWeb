@@ -21,6 +21,16 @@ public class MyFile implements java.io.Serializable {
 	@Expose
 	private Integer fid;
 	@Expose
+	private Integer kid;
+	public Integer getKid() {
+		return kid;
+	}
+
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
+	@Expose
 	private Integer uid;
 	public Integer getUid() {
 		return uid;

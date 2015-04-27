@@ -7,7 +7,7 @@ public interface CommonResource {
 
 	public static Gson gson = new GsonBuilder()
 			.excludeFieldsWithoutExposeAnnotation() // 不导出实体中没有用@Expose注解的属性
-			.setPrettyPrinting().create(); // 对json结果格式化.
+            .create(); // 对json结果格式化.
 	public static final String TEMPPATH = "D:\\tempfile\\";
 	public static final String UPLOADPATH = "D:\\uploadFile\\";
 	public static final String ALLEMPLOY = "allemploy.txt";

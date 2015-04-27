@@ -18,7 +18,9 @@ public void deleteEmploy(Employ employ) {
 		String hql="from Employ where name='"+userName+"' and pwd='"+password+"'";
 		List list=super.find(hql, null);
 		if(list.size()==1){
-			return (Employ)list.get(0);
+			Employ employ=(Employ)list.get(0);
+			employ.setKid(employ.getUid());
+			return employ;
 		}else{
 			return null;
 		}
@@ -26,7 +28,9 @@ public void deleteEmploy(Employ employ) {
 
 	public Employ getById(int userId) {
 		// TODO Auto-generated method stub
-		return super.findById(Employ.class, userId);
+		Employ employ=super.findById(Employ.class, userId);
+		employ.setKid(employ.getUid());
+		return employ;
 	}
 	
 	public void save(Employ employ){
@@ -44,7 +48,9 @@ public void deleteEmploy(Employ employ) {
 		String hql="from Employ";
 		obj=super.find(hql, null);
 		for(int i=0;i<obj.size();i++){
-			list.add((Employ)obj.get(i));
+			Employ employ=(Employ)obj.get(i);
+			employ.setKid(employ.getUid());
+			list.add(employ);
 		}
 		return list;
 	}

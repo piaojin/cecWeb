@@ -23,6 +23,7 @@
 		<mapping resource="com/piaojin/domain/Message.hbm.xml" />
 		<mapping resource="com/piaojin/domain/Employ.hbm.xml" />
 		<mapping resource="com/piaojin/domain/MyFile.hbm.xml" />
+		<mapping resource="com/piaojin/domain/Department.hbm.xml" />
 
 	</session-factory>
 

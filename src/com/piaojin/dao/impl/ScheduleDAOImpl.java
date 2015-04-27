@@ -16,7 +16,9 @@ public void deleteSchedule(Schedule schedule) {
 		String hql="from Users where title='"+title;
 		List list=super.find(hql, null);
 		if(list.size()==1){
-			return (Schedule)list.get(0);
+			Schedule schedule=(Schedule)list.get(0);
+			schedule.setKid(schedule.getSid());
+			return schedule;
 		}else{
 			return null;
 		}
@@ -24,8 +26,9 @@ public void deleteSchedule(Schedule schedule) {
 
 	public Schedule getById(int sid) {
 		// TODO Auto-generated method stub
-		Class<Schedule> schedule = null;
-		return super.findById(Schedule.class, sid);
+		Schedule schedule=super.findById(Schedule.class, sid);
+		schedule.setKid(schedule.getSid());
+		return schedule;
 	}
 	
 	public void save(Schedule schedule){
