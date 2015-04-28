@@ -12,7 +12,7 @@ import com.google.gson.annotations.Expose;
 public class Department implements java.io.Serializable {
 
 	@Expose
-	private Integer did;
+	private Integer dpid;
 	@Expose
 	private Integer kid;
 	public Integer getKid() {
@@ -27,11 +27,11 @@ public class Department implements java.io.Serializable {
     private String dname;
 	@Expose
     private String descript;
-    public Integer getDid() {
-		return did;
+    public Integer getDpid() {
+		return dpid;
 	}
-	public void setDid(Integer did) {
-		this.did = did;
+	public void setDpid(Integer dpid) {
+		this.dpid = dpid;
 	}
 	public Integer getUid() {
 		return uid;

@@ -31,8 +31,8 @@
         <property name="pwd" type="java.lang.String">
             <column name="pwd" length="36" not-null="true" />
         </property>
-        <property name="department" type="java.lang.String">
-            <column name="department" length="20" not-null="true" />
+        <property name="dpid" type="java.lang.Integer">
+            <column name="dpid" not-null="true" />
         </property>
         <property name="head" type="java.lang.String">
             <column name="head" length="20" />

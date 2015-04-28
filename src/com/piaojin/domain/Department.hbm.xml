@@ -6,8 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="com.piaojin.domain.Department" table="department" catalog="androidoa">
-        <id name="did" type="java.lang.Integer">
-            <column name="did" />
+        <id name="dpid" type="java.lang.Integer">
+            <column name="dpid" />
             <generator class="native" />
         </id>
         <property name="dname" type="java.lang.String">
@@ -21,7 +21,7 @@
         </property>
         <set name="emploies" inverse="true">
             <key>
-                <column name="did" not-null="true" />
+                <column name="dpid" not-null="true" />
             </key>
             <one-to-many class="com.piaojin.domain.Employ" />
         </set>

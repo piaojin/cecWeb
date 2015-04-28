@@ -1,7 +1,10 @@
 package com.piaojin.json;
 
+import com.google.gson.annotations.Expose;
+
 public class JsonHelper implements java.io.Serializable{
 
+	@Expose
 	private int type;
 	private int ok;//是否准备就绪可以上传文件了
 	public int getOk() {

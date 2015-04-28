@@ -12,7 +12,7 @@ public class DepartmentDAOImpl extends BaseDAOImpl<Department> implements com.pi
 	public Department getById(int did) {
 		// TODO Auto-generated method stub
 		Department department=super.findById(Department.class, did);
-		department.setKid(department.getDid());
+		department.setKid(department.getDpid());
 		return department;
 	}
 
@@ -29,7 +29,7 @@ public class DepartmentDAOImpl extends BaseDAOImpl<Department> implements com.pi
 		obj=super.find(hql, null);
 		for(int i=0;i<obj.size();i++){
 			Department department=(Department)obj.get(i);
-			department.setKid(department.getDid());
+			department.setKid(department.getDpid());
 			list.add(department);
 		}
 		return list;

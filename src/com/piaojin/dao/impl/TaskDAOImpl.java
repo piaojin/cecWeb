@@ -13,9 +13,9 @@ public void deleteTask(Task task) {
 
 	public Task findTask(String title) {
 		// TODO Auto-generated method stub
-		String hql="from Users where title='"+title;
+		String hql="from Task where title='"+title+"'";
 		List list=super.find(hql, null);
-		if(list.size()==1){
+		if(list.size()>0){
 			Task task=(Task)list.get(0);
 			task.setKid(task.getTid());
 			return task;

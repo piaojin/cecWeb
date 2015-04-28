@@ -13,6 +13,26 @@ public class Task implements java.io.Serializable {
 	@Expose
 	private Integer tid;
 	@Expose
+	private Integer uid;
+	@Expose
+	private Integer eid;
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getEid() {
+		return eid;
+	}
+
+	public void setEid(Integer eid) {
+		this.eid = eid;
+	}
+
+	@Expose
 	private Integer kid;
 	public Integer getKid() {
 		return kid;
@@ -34,8 +54,18 @@ public class Task implements java.io.Serializable {
 	private String endtime;
 	@Expose
 	private Integer status;
+	@Expose
+	private String content;
 
 	// Constructors
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 	/** default constructor */
 	public Task() {

@@ -40,12 +40,19 @@ public class Employ implements java.io.Serializable {
 	@Expose
 	private String pwd;
 	@Expose
-	private String department;
+	private Integer dpid;
 	@Expose
 	private String head;
 	@Expose
 	private Integer level;
-	@Expose
+	public Integer getDpid() {
+		return dpid;
+	}
+
+	public void setDpid(Integer dpid) {
+		this.dpid = dpid;
+	}
+
 	private Set tasksForUid = new HashSet(0);
 	private Set messagesForSenderid = new HashSet(0);
 	private Set schedules = new HashSet(0);
@@ -59,44 +66,7 @@ public class Employ implements java.io.Serializable {
 	public Employ() {
 	}
 
-	/** minimal constructor */
-	public Employ(String name, Integer sex, String tel, String email,
-			String address, Integer employeeid, String pwd, String department,
-			Integer level) {
-		this.name = name;
-		this.sex = sex;
-		this.tel = tel;
-		this.email = email;
-		this.address = address;
-		this.employeeid = employeeid;
-		this.pwd = pwd;
-		this.department = department;
-		this.level = level;
-	}
 
-	/** full constructor */
-	public Employ(String name, Integer sex, String tel, String email,
-			String address, Integer employeeid, String pwd, String department,
-			String head, Integer level, Set tasksForUid,
-			Set messagesForSenderid, Set schedules, Set files, Set tasksForEid,
-			Set messagesForReceiverid) {
-		this.name = name;
-		this.sex = sex;
-		this.tel = tel;
-		this.email = email;
-		this.address = address;
-		this.employeeid = employeeid;
-		this.pwd = pwd;
-		this.department = department;
-		this.head = head;
-		this.level = level;
-		this.tasksForUid = tasksForUid;
-		this.messagesForSenderid = messagesForSenderid;
-		this.schedules = schedules;
-		this.files = files;
-		this.tasksForEid = tasksForEid;
-		this.messagesForReceiverid = messagesForReceiverid;
-	}
 
 	// Property accessors
 
@@ -162,14 +132,6 @@ public class Employ implements java.io.Serializable {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-
-	public String getDepartment() {
-		return this.department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
 	}
 
 	public String getHead() {

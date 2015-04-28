@@ -69,19 +69,7 @@ public class EmployAction extends BaseAction<Employ> implements
 		super.response.setContentType("text/html;charset=UTF-8");
 		List<Employ> list = employService.getAllEmploy();
 		super.response.getOutputStream().write(CommonResource.gson.toJson(list).getBytes("UTF-8"));
+		System.out.println(CommonResource.gson.toJson(list));
 	}
 	
-	//获取共享文件
-	public void getAllSharedFile() throws UnsupportedEncodingException, IOException{
-		System.out.println("getAllSharedFile");
-		List<MyFile> list=super.fileService.getAllSharedFile();
-		String jsonlist=null;
-		if(list!=null&&list.size()>0){
-			jsonlist=CommonResource.gson.toJson(list);
-			super.response.getOutputStream().write(jsonlist.getBytes("UTF-8"));
-		}else{
-			super.response.getOutputStream().write(null);
-		}
-		
-	}
 }

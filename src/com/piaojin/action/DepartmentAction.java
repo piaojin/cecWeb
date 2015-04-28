@@ -32,6 +32,7 @@ ServletContextAware{
 	//获取所有的部门集合
 	public void getAllDepartment() throws UnsupportedEncodingException, IOException{
 		List<Department> list=super.departmentService.getAllDepartment();
+		System.out.println(CommonResource.gson.toJson(list));
 		super.response.getOutputStream().write(CommonResource.gson.toJson(list).getBytes("UTF-8"));
 	}
 }

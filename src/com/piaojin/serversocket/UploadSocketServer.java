@@ -7,13 +7,13 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SocketServer {
+public class UploadSocketServer {
 	private ExecutorService executorService;// 线程池
 	private ServerSocket ss = null;
 	private int port;// 监听端口
 	private boolean quit;// 是否退出
     //保存到数据库
-	public SocketServer(int port) {
+	public UploadSocketServer(int port) {
 		this.port = port;
 		// 初始化线程池
 		executorService = Executors.newFixedThreadPool(Runtime.getRuntime()
@@ -45,8 +45,8 @@ public class SocketServer {
 		String ip = addr.getHostAddress();// 获得本机IP
 		String address = addr.getHostName();// 获得本机名称
 		System.out.println(ip);
-		SocketServer server = new SocketServer(6666);
-		server.start();
+		UploadSocketServer Uploadserver = new UploadSocketServer(6666);
+		Uploadserver.start();
 	}
 
 

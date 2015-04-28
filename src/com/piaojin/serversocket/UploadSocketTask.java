@@ -54,7 +54,7 @@ public class UploadSocketTask implements Runnable {
 	public void run() {
 		try {
 			if (socket != null && socket.isConnected()) {
-				System.out.println("进入服务器...");
+				System.out.println("进入上传服务器...");
 				inStream = new PushbackInputStream(
 						socket.getInputStream());
 				outStream = socket.getOutputStream();
