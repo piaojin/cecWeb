@@ -78,4 +78,5 @@ public class TaskDAOImpl extends BaseDAOImpl<Task> implements
 		}
 		return list;
 	}
+
 }
