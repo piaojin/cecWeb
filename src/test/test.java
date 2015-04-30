@@ -29,19 +29,11 @@ import junit.framework.TestCase;
 public class test extends TestCase {
 
 	public void test1() throws IOException{
-		String testjson="{'content':'Fjyhkttfjiybkok','eid':1,'endtime':'2015年04月26日 20:56','starttime':'2015年04月26日 20:36','status':0,'time':'2015-04-28 20:53:18','title':'6','uid':1}";
-		Task task=CommonResource.gson.fromJson(testjson, Task.class);
 		TaskService taskService=(TaskService) Mysshtools.getAc().getBean("TaskService");
-		EmployService employService=(EmployService)Mysshtools.getAc().getBean("EmployService");
-		Employ u=employService.getById(task.getUid());
-		Employ e=employService.getById(task.getEid());
-		task.setEmployByEid(e);
-		task.setEmployByUid(u);
-		taskService.save(task);
-		task=taskService.findTask(task.getTitle());
-		task.setKid(task.getTid());
-		taskService.update(task);
-		System.out.println(CommonResource.gson.toJson(task));
+		List<Task> list=taskService.getMyTask(1);
+		for(Task task:list){
+			System.out.println(task.getEmployByUid().getName());
+		}
 		
 	}
 	

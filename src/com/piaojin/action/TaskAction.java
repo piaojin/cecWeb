@@ -5,7 +5,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +40,7 @@ public class TaskAction extends BaseAction<Employ> implements
 		System.out.println("AddTask");
 		super.response.setCharacterEncoding("UTF-8");
 		super.response.setContentType("text/html;charset=UTF-8");
-		String taskjson=super.request.getParameter("taskjson");
+		String taskjson=super.request.getParameter("parameter");
 		System.out.println(taskjson);
 		//添加到数据库中去
 		Task task=CommonResource.gson.fromJson(taskjson, Task.class);
@@ -53,6 +55,34 @@ public class TaskAction extends BaseAction<Employ> implements
 		super.taskService.update(task);
 		System.out.println(CommonResource.gson.toJson(task));
 		super.response.getWriter().write(CommonResource.gson.toJson(task));
+	}
+	
+	//获取所有我的任务
+	public void getMyTask() throws IOException{
+		System.out.println("getMyTask");
+		super.response.setCharacterEncoding("UTF-8");
+		super.response.setContentType("text/html;charset=UTF-8");
+		String employeeid=super.request.getParameter("parameter");
+		int eid=Integer.parseInt(employeeid);
+		List<Task> list=new ArrayList<Task>();
+		list=super.taskService.getMyTask(eid);
+		String jsonlist=CommonResource.gson.toJson(list);
+		System.out.println(jsonlist);
+		super.response.getWriter().write(jsonlist);
+	}
+	
+	//获取所有我的任务
+	public void getTask() throws IOException{
+		System.out.println("getTask");
+		super.response.setCharacterEncoding("UTF-8");
+		super.response.setContentType("text/html;charset=UTF-8");
+		String employeeid=super.request.getParameter("parameter");
+		int uid=Integer.parseInt(employeeid);
+		List<Task> list=new ArrayList<Task>();
+		list=super.taskService.getTask(uid);
+		String jsonlist=CommonResource.gson.toJson(list);
+		System.out.println(jsonlist);
+		super.response.getWriter().write(jsonlist);
 	}
 
 }

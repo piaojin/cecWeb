@@ -1,5 +1,7 @@
 package com.piaojin.service.impl;
 
+import java.util.List;
+
 import com.piaojin.dao.TaskDAO;
 import com.piaojin.domain.Task;
 import com.piaojin.service.TaskService;
@@ -38,6 +40,16 @@ public class TaskServiceImpl implements TaskService {
 	public void update(Task task) {
 		// TODO Auto-generated method stub
 		taskDAO.update(task);
+	}
+
+	public List<Task> getTask(int uid) {
+		// TODO Auto-generated method stub
+		return taskDAO.getTask(uid);
+	}
+
+	public List<Task> getMyTask(int eid) {
+		// TODO Auto-generated method stub
+		return taskDAO.getMyTask(eid);
 	}
 
 }
