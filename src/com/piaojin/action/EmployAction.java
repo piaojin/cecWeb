@@ -48,7 +48,7 @@ public class EmployAction extends BaseAction<Employ> implements
 
 		Employ employ = super.employService.checkEmploy(name, pwd);
 		// 把employ转换成json格式返回客户端
-		String json = new Gson().toJson(employ);
+		String json = CommonResource.gson.toJson(employ);
 		if (employ == null) {
 			System.out.println("用户名或密码错误！");
 			super.response.getWriter().write(ERROR);

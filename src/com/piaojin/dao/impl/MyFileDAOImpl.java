@@ -51,6 +51,7 @@ public void deleteMyFile(MyFile MyFile) {
 			list=new ArrayList<MyFile>();
 			for(Object o:objlist){
 				MyFile tempfile=(MyFile)o;
+				tempfile.setUid(tempfile.getEmploy().getUid());
 				tempfile.setUname(tempfile.getEmploy().getName());
 				tempfile.setKid(tempfile.getFid());
 				list.add(tempfile);
