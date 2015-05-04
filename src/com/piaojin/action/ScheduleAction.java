@@ -20,6 +20,11 @@ public class ScheduleAction extends BaseAction<Employ> implements
 		ServletContextAware {
 	private Schedule schedule;
 
+	private void setCharacterEncoding() {
+		super.response.setCharacterEncoding("UTF-8");
+		super.response.setContentType("text/html;charset=UTF-8");
+	}
+	
 	@Override
 	public Map<String, Object> getSession() {
 		// TODO Auto-generated method stub

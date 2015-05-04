@@ -12,6 +12,26 @@ public class Message implements java.io.Serializable {
 
 	@Expose
 	private Integer mid;
+	public Integer getReceiverid() {
+		return receiverid;
+	}
+
+	public void setReceiverid(Integer receiverid) {
+		this.receiverid = receiverid;
+	}
+
+	public Integer getSenderid() {
+		return senderid;
+	}
+
+	public void setSenderid(Integer senderid) {
+		this.senderid = senderid;
+	}
+
+	@Expose
+	private Integer receiverid;
+	@Expose
+	private Integer senderid;
 	@Expose
 	private Integer kid;
 	public Integer getKid() {
@@ -36,6 +56,16 @@ public class Message implements java.io.Serializable {
 	private String photourl;
 	@Expose
 	private String videourl;
+	@Expose
+	private String receiverip;
+	public String getReceiverip() {
+		return receiverip;
+	}
+
+	public void setReceiverip(String receiverip) {
+		this.receiverip = receiverip;
+	}
+
 	@Expose
 	private Integer status;
 

@@ -44,6 +44,16 @@ public class Employ implements java.io.Serializable {
 	@Expose
 	private String head;
 	@Expose
+	private String phoneip;
+	public String getPhoneip() {
+		return phoneip;
+	}
+
+	public void setPhoneip(String phoneip) {
+		this.phoneip = phoneip;
+	}
+
+	@Expose
 	private Integer level;
 	public Integer getDpid() {
 		return dpid;

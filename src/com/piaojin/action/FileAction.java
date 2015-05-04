@@ -25,6 +25,11 @@ public class FileAction extends BaseAction<Employ> implements
 		ServletContextAware {
 	private MyFile file;
 
+	private void setCharacterEncoding() {
+		super.response.setCharacterEncoding("UTF-8");
+		super.response.setContentType("text/html;charset=UTF-8");
+	}
+	
 	@Override
 	public Map<String, Object> getSession() {
 		// TODO Auto-generated method stub
@@ -40,6 +45,7 @@ public class FileAction extends BaseAction<Employ> implements
 	//获取共享文件
 		public void getAllSharedFile() throws UnsupportedEncodingException, IOException{
 			System.out.println("getAllSharedFile");
+			setCharacterEncoding();
 			List<MyFile> list=super.fileService.getAllSharedFile();
 			String jsonlist=null;
 			if(list!=null&&list.size()>0){

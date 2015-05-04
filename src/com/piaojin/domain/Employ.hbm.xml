@@ -19,6 +19,9 @@
         <property name="tel" type="java.lang.String">
             <column name="tel" length="20" not-null="true" />
         </property>
+        <property name="phoneip" type="java.lang.String">
+            <column name="phoneip" length="26" not-null="true" />
+        </property>
         <property name="email" type="java.lang.String">
             <column name="email" length="20" not-null="true" />
         </property>

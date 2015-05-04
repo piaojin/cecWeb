@@ -42,12 +42,6 @@ public class test extends TestCase {
 		DatagramPacket sendPacket = new DatagramPacket(sendBuf, sendBuf.length,
 				addr, port);
 		client.send(sendPacket);
-		byte[] recvBuf = new byte[100];
-		DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
-		client.receive(recvPacket);
-		String recvStr = new String(recvPacket.getData(), 0,
-				recvPacket.getLength());
-		System.out.println("收到:" + recvStr);
 		client.close();
 
 	}

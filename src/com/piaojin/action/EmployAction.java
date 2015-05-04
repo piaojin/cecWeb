@@ -18,6 +18,10 @@ public class EmployAction extends BaseAction<Employ> implements
 	final String NULLERROR = "nullerror";
 	private Employ employ;
 
+	private void setCharacterEncoding() {
+		super.response.setCharacterEncoding("UTF-8");
+		super.response.setContentType("text/html;charset=UTF-8");
+	}
 	@Override
 	public Map<String, Object> getSession() {
 		// TODO Auto-generated method stub
@@ -37,6 +41,8 @@ public class EmployAction extends BaseAction<Employ> implements
 	// 登录
 	public void Login() throws IOException {
 		System.out.println("Login");
+		setCharacterEncoding();
+		String phoneip = super.request.getParameter("phoneip");
 		String name = super.request.getParameter("name");
 		String pwd = super.request.getParameter("pwd");
 
@@ -47,6 +53,10 @@ public class EmployAction extends BaseAction<Employ> implements
 		}
 
 		Employ employ = super.employService.checkEmploy(name, pwd);
+		//更新用户的手机ip
+		System.out.println(phoneip);
+		employ.setPhoneip(phoneip);
+		super.employService.update(employ);
 		// 把employ转换成json格式返回客户端
 		String json = CommonResource.gson.toJson(employ);
 		if (employ == null) {
@@ -54,10 +64,7 @@ public class EmployAction extends BaseAction<Employ> implements
 			super.response.getWriter().write(ERROR);
 			return;
 		}
-		super.response.setCharacterEncoding("UTF-8");
-		super.response.setContentType("text/html;charset=UTF-8");
 		super.response.getWriter().write(json);
-		System.out.println("json");
 		System.out.println(json);
 	}
 
@@ -65,8 +72,7 @@ public class EmployAction extends BaseAction<Employ> implements
 	public void getAllEmploy() throws IOException {
 		// 获取所有员工集合
 		System.out.println("getAllEmploy");
-		super.response.setCharacterEncoding("UTF-8");
-		super.response.setContentType("text/html;charset=UTF-8");
+		setCharacterEncoding();
 		List<Employ> list = employService.getAllEmploy();
 		super.response.getOutputStream().write(CommonResource.gson.toJson(list).getBytes("UTF-8"));
 		System.out.println(CommonResource.gson.toJson(list));
