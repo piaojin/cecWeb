@@ -154,6 +154,7 @@ public class UploadSocketTask implements Runnable {
 			this.myfile.setCompletedate(DateUtil.CurrentTime());
 			this.myfile.setIscomplete(1);
 			System.out.println("上传文件完毕...");
+			this.myfile.setType(UploadfileResource.TYPE_SHARED);
 			fileService.save(this.myfile);
 			JsonHelper jsonhelpers = new JsonHelper();
 			jsonhelpers.setType(UploadfileResource.UPLOADFINISH);

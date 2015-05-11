@@ -21,4 +21,5 @@ public class UploadfileResource {
 	public static final int COMPLETESIZE = 7;// 更新文件的上传进度
 	public static final int UPLOADFINISH=2;//文件上传完毕
 	public static final int UPLOADFAIL=9;//上传失败
+	public static final int TYPE_SHARED=0;//文件设为共享
 }
