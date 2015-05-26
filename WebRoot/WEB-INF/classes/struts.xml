@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<package name="oa" namespace="/" extends="struts-default">
+
+		<action name="employ*" class="employAction" method="{1}">
+		</action>
+		<action name="department*" class="departmentAction" method="{1}">
+		</action>
+		<action name="down*" class="downAction" method="{1}">
+		</action>
+		<action name="file*" class="fileAction" method="{1}">
+		</action>
+		<action name="message*" class="messageAction" method="{1}">
+		</action>
+		<action name="schedule*" class="scheduleAction" method="{1}">
+		</action>
+		<action name="task*" class="taskAction" method="{1}">
+		</action>
+
+	</package>
+</struts>    
